@@ -1,6 +1,5 @@
 // This const stores the values of the selectors needed to capture the data in Mercado Libre web page.
 export const MELI_CLASSES = {
-    urlMELI: "https://www.mercadolibre.com.ar/",
     inputMELI: ".nav-search-input",
     searchBTN_MELI: ".nav-search-btn",
     titleMELI: ".ui-search-item__title",
@@ -10,7 +9,6 @@ export const MELI_CLASSES = {
 
 // This const stores the values of the selectors needed to capture the data in Book Depository web page.
 export const DB_CLASSES = {
-    urlBD: "https://www.bookdepository.com/",
     inputMELI: ".text-input",
     searchBTN_MELI: ".header-search-btn",
     titleBD: ".title",
