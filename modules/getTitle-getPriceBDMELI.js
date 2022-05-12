@@ -7,9 +7,9 @@ export async function GET_TITLES(page) {
         const titleTxt = title.textContent;
         if (titleTxt) {
             TITLES.push(titleTxt);
+            console.log(TITLES);
         }
     });
-    console.log(TITLES);
     return TITLES;
 }
 

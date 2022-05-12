@@ -9,7 +9,8 @@ import puppeteer from 'puppeteer';
   await page.goto(DB_URL);
   await SEARCH_PRODUCT(page);
   await page.waitForNavigation;
-  await GET_TITLES(page);
+  const titles = await GET_TITLES(page);
+  console.log(titles);
 
   
 
