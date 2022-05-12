@@ -11,6 +11,8 @@ import puppeteer from 'puppeteer';
   await page.waitForNavigation;
   const titles = await GET_TITLES(page);
   console.log(titles);
+  const prices = await GET_PRICES(page);
+  console.log(prices);
 
   
 

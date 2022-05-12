@@ -5,21 +5,18 @@ export async function GET_TITLES(page) {
 
     await page.waitForSelector(DB_CLASSES.titleBD);
     const TITLES = await page.$$eval(DB_CLASSES.titleBD, (titles) => 
-        titles.map((title) => title.textContent)
+        titles.map((title) => title.textContent.trim())
     );
     return await TITLES;
 }
 
 export async function GET_PRICES(page) {
-    const PRICES = [];
 
-    document.querySelectorAll(DB_CLASSES.priceBD).forEach((price) => {
-        const priceTxt = price.innerText();
-        if (priceTxt) {
-            PRICES.push(priceTxt);
-        }
-    })
-    return PRICES;
+    await page.waitForSelector(DB_CLASSES.priceBD);
+    const PRICES = await page.$$eval(DB_CLASSES.priceBD, (prices) => 
+        prices.map((price) => price.textContent.trim())
+    );
+    return await PRICES;
 }
 
 export async function GET_URL(page) {
