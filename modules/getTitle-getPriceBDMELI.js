@@ -1,4 +1,4 @@
-import { MELI_CLASSES, DB_CLASSES } from './modules/selectorCONSTS.js';
+import { MELI_CLASSES, DB_CLASSES } from './selectorCONSTS.js';
 
 
 export async function GET_TITLES(page) {
