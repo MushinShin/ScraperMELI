@@ -33,24 +33,19 @@ export async function GET_PRICES(page) {
 }
 
 export async function GET_URL(page) {
-    
-    return await page.evaluate(async () => {
-        const URLS = [];
+    const URLS = [];
 
-        document.querySelectorAll("urlclass").forEach((url) => {
-            const HREF = url.getAttribute("href");
-            if (HREF) {
-                URLS.push(HREF);
-            }
-        })
-        return URLS;
+    document.querySelectorAll("urlclass").forEach((url) => {
+        const HREF = url.getAttribute("href");
+        if (HREF) {
+            URLS.push(HREF);
+        }
     })
+    return URLS;
 }
 
 export async function SEARCH_PRODUCT(page) {
-
-    return await page.evaluate(async () => {
-         await page.type(DB_CLASSES.inputDB, "Mistborn Trilogy");
-         await page.click(DB_CLASSES.searchBTN_DB);
-    })
+    console.log("hola");    
+    await page.type(DB_CLASSES.inputDB, "Mistborn Trilogy");
+    await page.click(DB_CLASSES.searchBTN_DB);
 }

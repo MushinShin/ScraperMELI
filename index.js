@@ -8,6 +8,7 @@ import puppeteer from 'puppeteer';
   // Next line of code is the webpage scrapy will capture data from
   await page.goto(DB_URL);
   await SEARCH_PRODUCT(page);
+  await GET_TITLES(page);
 
   
 
