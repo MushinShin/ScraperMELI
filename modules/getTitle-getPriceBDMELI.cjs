@@ -44,9 +44,9 @@ export const GET_URL = async (page) => {
     })
 }
 
-export const SEARCH_PRODUCT = async (page) => {
+// export const SEARCH_PRODUCT = async (page) => {
 
-    return await page.evaluate(async () => {
-        
-    })
-}
+//     return await page.evaluate(async () => {
+//         await page.type()
+//     })
+// }
