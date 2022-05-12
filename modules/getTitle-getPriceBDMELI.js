@@ -3,12 +3,13 @@ import { MELI_CLASSES, DB_CLASSES } from './selectorCONSTS.js';
 
 export async function GET_TITLES(page) {
     const TITLES = [];
-    page.$$eval(DB_CLASSES.titleBD).forEach((title) => {
-        const titleTxt = title.innerText();
+    await page.$$eval(DB_CLASSES.titleBD, (title) => {
+        const titleTxt = title.textContent;
         if (titleTxt) {
             TITLES.push(titleTxt);
         }
-    })
+    });
+    console.log(TITLES);
     return TITLES;
 }
 

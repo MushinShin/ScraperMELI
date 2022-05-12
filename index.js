@@ -10,7 +10,6 @@ import puppeteer from 'puppeteer';
   await SEARCH_PRODUCT(page);
   await page.waitForNavigation;
   await GET_TITLES(page);
-  console.log(TITLES);
 
   
 
