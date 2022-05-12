@@ -2,15 +2,12 @@ import { MELI_CLASSES, DB_CLASSES } from './selectorCONSTS.js';
 
 
 export async function GET_TITLES(page) {
-    const TITLES = [];
-    await page.$$eval(DB_CLASSES.titleBD, (title) => {
-        const titleTxt = title.textContent;
-        if (titleTxt) {
-            TITLES.push(titleTxt);
-            console.log(TITLES);
-        }
-    });
-    return TITLES;
+
+    await page.waitForSelector(DB_CLASSES.titleBD);
+    const TITLES = await page.$$eval(DB_CLASSES.titleBD, (titles) => 
+        titles.map((title) => title.textContent)
+    );
+    return await TITLES;
 }
 
 export async function GET_PRICES(page) {

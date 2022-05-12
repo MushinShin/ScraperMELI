@@ -3,7 +3,7 @@ import { GET_PRICES, GET_TITLES, GET_URL, SEARCH_PRODUCT} from './modules/getTit
 import puppeteer from 'puppeteer';
 
 (async () => {
-  const browser = await puppeteer.launch({headless: false, slowMo: 100,});
+  const browser = await puppeteer.launch({headless: false, slowMo: 15,});
   const page = await browser.newPage();
   // Next line of code is the webpage scrapy will capture data from
   await page.goto(DB_URL);
