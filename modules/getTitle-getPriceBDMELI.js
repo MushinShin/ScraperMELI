@@ -1,4 +1,7 @@
-export const GET_TITLES = async (page) => {
+import { MELI_CLASSES, DB_CLASSES } from './modules/selectorCONSTS.js';
+
+
+export async function GET_TITLES(page) {
 
     return await page.evaluate(async () => {
         const TITLES = [];
@@ -14,7 +17,7 @@ export const GET_TITLES = async (page) => {
 
 }
 
-export const GET_PRICES = async (page) => {
+export async function GET_PRICES(page) {
 
     return await page.evaluate(async () => {
         const PRICES = [];
@@ -29,7 +32,7 @@ export const GET_PRICES = async (page) => {
     })
 }
 
-export const GET_URL = async (page) => {
+export async function GET_URL(page) {
     
     return await page.evaluate(async () => {
         const URLS = [];
@@ -44,9 +47,10 @@ export const GET_URL = async (page) => {
     })
 }
 
-// export const SEARCH_PRODUCT = async (page) => {
+export async function SEARCH_PRODUCT(page) {
 
-//     return await page.evaluate(async () => {
-//         await page.type()
-//     })
-// }
+    return await page.evaluate(async () => {
+         await page.type(DB_CLASSES.inputDB, "Mistborn Trilogy");
+         await page.click(DB_CLASSES.searchBTN_DB);
+    })
+}

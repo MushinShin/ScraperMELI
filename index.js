@@ -1,5 +1,5 @@
 import { MELI_CLASSES, DB_CLASSES, MELI_URL, DB_URL } from './modules/selectorCONSTS.js';
-import { GET_PRICES, GET_TITLES, GET_URL} from './modules/getTitle-getPriceBDMELI.js';
+import { GET_PRICES, GET_TITLES, GET_URL, SEARCH_PRODUCT} from './modules/getTitle-getPriceBDMELI.js';
 import puppeteer from 'puppeteer';
 
 (async () => {
@@ -7,7 +7,7 @@ import puppeteer from 'puppeteer';
   const page = await browser.newPage();
   // Next line of code is the webpage scrapy will capture data from
   await page.goto(DB_URL);
-  
+  await SEARCH_PRODUCT(page);
 
   
 
