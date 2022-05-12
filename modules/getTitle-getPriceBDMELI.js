@@ -2,40 +2,32 @@ import { MELI_CLASSES, DB_CLASSES } from './selectorCONSTS.js';
 
 
 export async function GET_TITLES(page) {
-
-    return await page.evaluate(async () => {
-        const TITLES = [];
-
-        document.querySelectorAll("titlesclass").forEach((title) => {
-            const titleTxt = title.innerText();
-            if (titleTxt) {
-                TITLES.push(titleTxt);
-            }
-        })
-        return TITLES;
+    const TITLES = [];
+    page.$$eval(DB_CLASSES.titleBD).forEach((title) => {
+        const titleTxt = title.innerText();
+        if (titleTxt) {
+            TITLES.push(titleTxt);
+        }
     })
-
+    return TITLES;
 }
 
 export async function GET_PRICES(page) {
+    const PRICES = [];
 
-    return await page.evaluate(async () => {
-        const PRICES = [];
-
-        document.querySelectorAll("pricesclass").forEach((price) => {
-            const priceTxt = price.innerText();
-            if (priceTxt) {
-                PRICES.push(priceTxt);
-            }
-        })
-        return PRICES;
+    document.querySelectorAll(DB_CLASSES.priceBD).forEach((price) => {
+        const priceTxt = price.innerText();
+        if (priceTxt) {
+            PRICES.push(priceTxt);
+        }
     })
+    return PRICES;
 }
 
 export async function GET_URL(page) {
     const URLS = [];
 
-    document.querySelectorAll("urlclass").forEach((url) => {
+    document.querySelectorAll(DB_CLASSES.produDB_URL).forEach((url) => {
         const HREF = url.getAttribute("href");
         if (HREF) {
             URLS.push(HREF);
@@ -45,7 +37,7 @@ export async function GET_URL(page) {
 }
 
 export async function SEARCH_PRODUCT(page) {
-    console.log("hola");    
+    console.log("hola");
     await page.type(DB_CLASSES.inputDB, "Mistborn Trilogy");
     await page.click(DB_CLASSES.searchBTN_DB);
 }
