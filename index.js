@@ -13,6 +13,8 @@ import puppeteer from 'puppeteer';
   console.log(titles);
   const prices = await GET_PRICES(page);
   console.log(prices);
+  const urls = await GET_URL(page);
+  console.log(urls);
 
   
 

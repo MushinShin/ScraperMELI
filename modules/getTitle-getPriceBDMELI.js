@@ -20,15 +20,12 @@ export async function GET_PRICES(page) {
 }
 
 export async function GET_URL(page) {
-    const URLS = [];
 
-    document.querySelectorAll(DB_CLASSES.produDB_URL).forEach((url) => {
-        const HREF = url.getAttribute("href");
-        if (HREF) {
-            URLS.push(HREF);
-        }
-    })
-    return URLS;
+    await page.waitForSelector(DB_CLASSES.produDB_URL);
+    const URLS = await page.$$eval(DB_CLASSES.produDB_URL, (urls) => 
+        urls.map((url) => url.getAttribute('href').trim())
+    );
+    return await URLS;
 }
 
 export async function SEARCH_PRODUCT(page) {
